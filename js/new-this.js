@@ -1,3 +1,4 @@
+// THE NEW KEYWORD
 //myDate is an instance of the Date constructor
 const myDate = new Date(`August 11, 2025`);
 console.log(myDate);
@@ -35,3 +36,29 @@ console.log(span instanceof Node);
 * In all of those cases, the element inherits the Node 
 * and the HTMLSpanElement inherits the Element.
 */
+
+//*****Why isn't the new keyword needed for createElement?*****
+//Create the ability to make a new pizza
+function Pizza() {
+    console.log(`Making a pizza`);
+}
+//Create a new pizza
+/*
+const pepperoniPizza = Pizza();
+console.log(pepperoniPizza); //undefined bc the function doesn't return anything
+*/
+
+/*
+* With the new keyword, a new instance object of the function is created 
+* instead of what is returned from the function
+*/
+const pepperoniPizza = new Pizza();
+console.log(pepperoniPizza); //returns an object with nothing bc nothing is added to it
+console.log(pepperoniPizza.constructor); //Pizza() function that created this instance
+
+/*
+* So when you log out the span.constructor you can see the HTMLSpanElement() {} function 
+* that made it
+*/
+console.log(pepperoniPizza instanceof Pizza); //true
+//***** ******/
