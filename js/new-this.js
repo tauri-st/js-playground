@@ -15,3 +15,10 @@ console.log(myDate instanceof Date); //true
 const names = [`tauri`, `danielle`];
 console.log(typeof names);
 console.log(names instanceof Array);
+
+/*
+* Same thing is happening when creating an element
+*/
+const span = document.createElement(`span`);
+console.log(span); //<span></span>
+console.log(span instanceof Element); //true
