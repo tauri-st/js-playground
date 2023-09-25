@@ -4,3 +4,5 @@ console.log(myDate);
 console.dir(myDate);
 console.log(myDate.getFullYear());
 
+console.log(typeof myDate); //object
+console.log(myDate instanceof Date); //true
