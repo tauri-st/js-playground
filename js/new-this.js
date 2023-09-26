@@ -26,8 +26,8 @@ console.log(span instanceof Element); //true
 console.log(span.constructor);
 console.dir(span.constructor);
 
-console.log(span instanceof HTMLSpanElement);
-console.log(span instanceof Node);
+console.log(span instanceof HTMLSpanElement); //true
+console.log(span instanceof Node); //true
 //Classes and extending
 /*
 * things can start very basic like a node with text. 
@@ -61,4 +61,24 @@ console.log(pepperoniPizza.constructor); //Pizza() function that created this in
 * that made it
 */
 console.log(pepperoniPizza instanceof Pizza); //true
-//***** ******/
+//***********/
+
+// THE THIS KEYWORD
+//The this keyword refers to the instance of an object that a function is bound to
+
+//Wes Bos has definied 'this' as 'what is left of the dot when you are calling a method'
+const button1 = document.querySelector(".one");
+const button2 = document.querySelector(".two");
+
+function tellMeAboutTheButton() {
+    console.log("outside", this);
+  }
+button1.addEventListener("click", tellMeAboutTheButton);
+button2.addEventListener("click", tellMeAboutTheButton);
+//this is equal to each button that was clicked
+//these are both instances of the HTML button that is in the browser
+/*
+* The this keyword in our example is equal to the thing that is left of the dot. 
+* The method that was called was addEventListener() 
+* and the thing to the left of it was either button1 or button2 in our example.
+*/
