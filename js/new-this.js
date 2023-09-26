@@ -1,3 +1,4 @@
+// **How are Date and createElement different here where one needs the new keyword and the other does not??
 // THE NEW KEYWORD
 //myDate is an instance of the Date constructor
 const myDate = new Date(`August 11, 2025`);
@@ -7,6 +8,7 @@ console.log(myDate.getFullYear());
 
 console.log(typeof myDate); //object
 console.log(myDate instanceof Date); //true
+console.log(myDate.constructor);
 
 /* 
 * Same with arrays, but we don't have to use the new keyword
@@ -58,7 +60,8 @@ console.log(pepperoniPizza.constructor); //Pizza() function that created this in
 
 /*
 * So when you log out the span.constructor you can see the HTMLSpanElement() {} function 
-* that made it
+* that made it, and if you make a new instance of a function then view the constructor
+* see the Pizza() that made it
 */
 console.log(pepperoniPizza instanceof Pizza); //true
 //***********/
@@ -70,9 +73,12 @@ console.log(pepperoniPizza instanceof Pizza); //true
 const button1 = document.querySelector(".one");
 const button2 = document.querySelector(".two");
 
-function tellMeAboutTheButton() {
+const tellMeAboutTheButton = () => {
     console.log("outside", this);
   }
+/*function tellMeAboutTheButton() {
+    console.log("outside", this);
+  } */
 button1.addEventListener("click", tellMeAboutTheButton);
 button2.addEventListener("click", tellMeAboutTheButton);
 //this is equal to each button that was clicked
@@ -82,3 +88,4 @@ button2.addEventListener("click", tellMeAboutTheButton);
 * The method that was called was addEventListener() 
 * and the thing to the left of it was either button1 or button2 in our example.
 */
+//the tellMeAboutTheButton function is "bound to the button"
