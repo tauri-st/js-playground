@@ -72,15 +72,16 @@ console.log(pepperoniPizza instanceof Pizza); //true
 const button1 = document.querySelector(".one");
 const button2 = document.querySelector(".two");
 
-const tellMeAboutTheButton = () => {
-    console.log("outside", this);
-  }
-/*function tellMeAboutTheButton() {
+//Skip to "Arrow Functions and this" for notes about this part
+/* const tellMeAboutTheButton = () => {
     console.log("outside", this);
   } */
+function tellMeAboutTheButton() {
+    console.log("outside", this);
+  }
 button1.addEventListener("click", tellMeAboutTheButton);
 button2.addEventListener("click", tellMeAboutTheButton);
-//this is equal to each button that was clicked
+//this is equal to each button element that was clicked
 //these are both instances of the HTML button that is in the browser
 /*
 * The this keyword in our example is equal to the thing that is left of the dot. 
@@ -88,3 +89,13 @@ button2.addEventListener("click", tellMeAboutTheButton);
 * and the thing to the left of it was either button1 or button2 in our example.
 */
 //the tellMeAboutTheButton function is "bound to the button"
+
+//this is always scoped to a function
+/* 
+* Arrow Functions and this
+* If I comment out the function above and instead change to an arrow function,
+* this will log out the Window
+* this is bc arrow functions not have their own scope in reference to the this keyword
+* Also just as an additional note, arrow functions are always anonymous functions
+* so we declare them as variables
+*/
