@@ -39,7 +39,6 @@ console.log(span instanceof Node); //true
 * and the HTMLSpanElement inherits the Element.
 */
 
-//*****Why isn't the new keyword needed for createElement?*****
 //Create the ability to make a new pizza
 function Pizza() {
     console.log(`Making a pizza`);
