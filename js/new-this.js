@@ -141,8 +141,18 @@ function Pizza(toppings = [], customer) {
   this.id = Math.floor(Math.random() * 16777215).toString(16);
   this.toppings = toppings;
   this.customer = customer;
+  this.slices= 10;
+  this.eat = function() {
+    console.log(`CHOMP`);
+    this.slices = this.slices -1;
+  }
 }
 
 //When you create a new instance, the this keyword is used to store information about that instance
 const pepperoniPizza = new Pizza([`pepperoni`], `tauri`);
 const canadianPizza = new Pizza([`candadian bacon`, `mushrooms`, `onion`], `danielle`);
+
+canadianPizza.eat();
+canadianPizza.eat();
+
+console.dir(canadianPizza);
