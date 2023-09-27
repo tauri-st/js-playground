@@ -76,9 +76,17 @@ const button2 = document.querySelector(".two");
 /* const tellMeAboutTheButton = () => {
     console.log("outside", this);
   } */
+//Skip to "The value of this will change everytime you create new function within a function"
 function tellMeAboutTheButton() {
+    console.log(`outside`, this);
+    setTimeout(function() {
+      console.log(`inside`, this);
+      this.textContent = "You Clicked Me";
+    }, 1000);
+}
+/* function tellMeAboutTheButton() {
     console.log("outside", this);
-  }
+  } */
 button1.addEventListener("click", tellMeAboutTheButton);
 button2.addEventListener("click", tellMeAboutTheButton);
 //this is equal to each button element that was clicked
@@ -98,4 +106,25 @@ button2.addEventListener("click", tellMeAboutTheButton);
 * this is bc arrow functions not have their own scope in reference to the this keyword
 * Also just as an additional note, arrow functions are always anonymous functions
 * so we declare them as variables
+*/
+
+/*
+* The value of this will change everytime you create a new function within a function
+* setTimeout is a higher order function with one arguement as a callback function
+* and the second arguement is how long the timeout should be
+* the value of this outside the timeout is the button element,
+* the value of this inside the timeout is the window
+* If you need to be able to access the value of the this keyword within the tellMeABoutTheButton function, 
+* you can use an arrow function because it will know not to change.
+* then this content is <button class="one">Button 1 </button> outside
+* and inside it's <button class="one">You Clicked Me</button>
+*/
+/*
+function tellMeAboutTheButton () {
+  console.log(`outside`, this);
+  setTimeout(() => {
+    console.log(`inside`, this);
+    this.textContent = `You Clicked Me`;
+  }, 1000);
+}
 */
