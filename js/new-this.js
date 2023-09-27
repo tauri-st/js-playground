@@ -143,8 +143,12 @@ function Pizza(toppings = [], customer) {
   this.customer = customer;
   this.slices= 10;
   this.eat = function() {
-    console.log(`CHOMP`);
-    this.slices = this.slices -1;
+    if (this.slices > 0) {
+      this.slices = this.slices -1;
+      console.log(`CHOMP you now have ${this.slices} left!`);
+    } else {
+      console.log(`Sorry! No slices left`);
+    }
   }
 }
 
@@ -152,6 +156,15 @@ function Pizza(toppings = [], customer) {
 const pepperoniPizza = new Pizza([`pepperoni`], `tauri`);
 const canadianPizza = new Pizza([`candadian bacon`, `mushrooms`, `onion`], `danielle`);
 
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
 canadianPizza.eat();
 canadianPizza.eat();
 
