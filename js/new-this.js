@@ -40,9 +40,10 @@ console.log(span instanceof Node); //true
 */
 
 //Create the ability to make a new pizza
-function Pizza() {
+/*function Pizza() {
     console.log(`Making a pizza`);
-}
+}*/
+
 //Create a new pizza
 /*
 const pepperoniPizza = Pizza();
@@ -53,16 +54,18 @@ console.log(pepperoniPizza); //undefined bc the function doesn't return anything
 * With the new keyword, a new instance object of the function is created 
 * instead of what is returned from the function
 */
+/*
 const pepperoniPizza = new Pizza();
 console.log(pepperoniPizza); //returns an object with nothing bc nothing is added to it
 console.log(pepperoniPizza.constructor); //Pizza() function that created this instance
+*/
 
 /*
 * So when you log out the span.constructor you can see the HTMLSpanElement() {} function 
 * that made it, and if you make a new instance of a function then view the constructor
-* see the Pizza() that made it
+* which is the Pizza() that made it
 */
-console.log(pepperoniPizza instanceof Pizza); //true
+//console.log(pepperoniPizza instanceof Pizza); //true
 //***********/
 
 // THE THIS KEYWORD
@@ -128,3 +131,18 @@ function tellMeAboutTheButton () {
   }, 1000);
 }
 */
+
+//This refers to the instance of the thing that was made
+//Modify the Pizza() function, which is a constructor
+function Pizza(toppings = [], customer) {
+  console.log("Making a pizza");
+  // save the toppings that were passed in to this instance of pizza
+  //a function is assigned to create a randomized id for each pizza
+  this.id = Math.floor(Math.random() * 16777215).toString(16);
+  this.toppings = toppings;
+  this.customer = customer;
+}
+
+//When you create a new instance, the this keyword is used to store information about that instance
+const pepperoniPizza = new Pizza([`pepperoni`], `tauri`);
+const canadianPizza = new Pizza([`candadian bacon`, `mushrooms`, `onion`], `danielle`);
