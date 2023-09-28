@@ -143,6 +143,12 @@ function Pizza(toppings = [], customer) {
   this.customer = customer;
   this.slices= 10;
   /*
+  * Look first at instance then look at prototype
+  * Goes with size of pizza declared as large later added to the prototype
+  * But canadianPizza will show as "Medium"
+  */
+  //this.size = "Medium";
+  /*
   this.eat = function() {
     if (this.slices > 0) {
       this.slices = this.slices -1;
@@ -188,6 +194,8 @@ Pizza.prototype.eat = function() {
     console.log(`Sorry! No slices left`);
   }
 };
+
+//Pizza.prototype.size = `Large`;
 
 canadianPizza.eat();
 canadianPizza.eat();
