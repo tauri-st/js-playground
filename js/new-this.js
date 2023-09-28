@@ -142,6 +142,7 @@ function Pizza(toppings = [], customer) {
   this.toppings = toppings;
   this.customer = customer;
   this.slices= 10;
+  /*
   this.eat = function() {
     if (this.slices > 0) {
       this.slices = this.slices -1;
@@ -150,11 +151,43 @@ function Pizza(toppings = [], customer) {
       console.log(`Sorry! No slices left`);
     }
   }
+  */
 }
 
 //When you create a new instance, the this keyword is used to store information about that instance
 const pepperoniPizza = new Pizza([`pepperoni`], `tauri`);
 const canadianPizza = new Pizza([`candadian bacon`, `mushrooms`, `onion`], `danielle`);
+
+/*
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+canadianPizza.eat();
+
+console.dir(canadianPizza);
+*/
+
+/*
+* But the eat function is duplicating for every instance of the pizza that we create,
+* Which takes up memory and slows your website down
+* We need to add the eat method to the prototype
+*/
+
+Pizza.prototype.eat = function() {
+  if (this.slices > 0) {
+    this.slices = this.slices -1;
+    console.log(`CHOMP you now have ${this.slices} left!`);
+  } else {
+    console.log(`Sorry! No slices left`);
+  }
+};
 
 canadianPizza.eat();
 canadianPizza.eat();
