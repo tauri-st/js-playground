@@ -99,7 +99,10 @@ button2.addEventListener("click", tellMeAboutTheButton);
 * The method that was called was addEventListener() 
 * and the thing to the left of it was either button1 or button2 in our example.
 */
-//the tellMeAboutTheButton function is "bound to the button"
+/*
+* the tellMeAboutTheButton function is "bound to the button"
+* This is where `implicit binding` comes into play
+*/
 
 //this is always scoped to a function
 /* 
@@ -132,7 +135,7 @@ function tellMeAboutTheButton () {
 }
 */
 
-//This refers to the instance of the thing that was made
+//this refers to the instance of the thing that was made
 //Modify the Pizza() function, which is a constructor
 function Pizza(toppings = [], customer) {
   console.log("Making a pizza");
@@ -210,3 +213,24 @@ canadianPizza.eat();
 canadianPizza.eat();
 
 console.dir(canadianPizza);
+
+//this identifier points to a particular object depending on how it's called
+function foo () {
+  console.log( this.bar );
+}
+
+var bar = "global";
+
+var obj1 = {
+  bar: "obj1",
+  foo: foo //setting a function as a method in the obj that references the foo function in global
+};
+
+var obj2 = {
+  bar: "obj2"
+};
+
+foo(); // "global"
+obj1.foo(); // "obj1"
+foo.call( obj2 ); // "obj2"
+new foo(); // undefined
